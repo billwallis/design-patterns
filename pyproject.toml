@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://json.schemastore.org/pyproject.json
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "design-patterns"
+version = "0.0.0"
+description = "Examples of the design patterns introduced in the gang of four's _Design Patterns: Elements of Reusable Object-Oriented Software_ software engineering book."
+authors = [{name = "billwallis"}]
+readme = "README.md"
+license-files = ["LICENSE"]
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.0",
+]
+
+
+[tool.setuptools]
+packages = []
