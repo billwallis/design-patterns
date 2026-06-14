@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://json.schemastore.org/pre-commit-config.json
+---
+ci:
+  autoupdate_schedule: quarterly
+  skip: ["identity"]
+
+repos:
+  - repo: meta
+    hooks:
+      - id: identity
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: no-commit-to-branch
+        args: ["--branch", "main"]
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: check-added-large-files
+      - id: check-json
+      - id: check-yaml
+      - id: check-toml
+      - id: check-ast
+      - id: detect-private-key
+
+  - repo: https://github.com/pre-commit-ci/pre-commit-ci-config
+    rev: v1.6.1
+    hooks:
+      - id: check-pre-commit-ci-config
+
+  - repo: https://github.com/billwallis/bills-hooks
+    rev: v0.0.15
+    hooks:
+      - id: banned-python-code
+      - id: check-no-commit-comment
+      - id: tidy-gitkeep
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.37.2
+    hooks:
+      - id: check-github-workflows
+      - id: check-compose-spec
